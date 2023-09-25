@@ -22,7 +22,12 @@ fn main() {
     println!("My coin value is: ${my_coin_value}");
     println!("My other coin value is: ${my_other_coin_value}");
 
-    
+    // matching with Option<T>
+    let five = Some(5);
+    let six = plus_one(five);
+    let none = plus_one(None);
+
+    // matches must exhaust all the possible values of the enum
 }
 
 fn value_in_cents(coin: Coin) -> u8 {
@@ -41,6 +46,12 @@ fn value_in_cents(coin: Coin) -> u8 {
             25
         },
     }
+}
 
+fn plus_one(x: Option<i32>) -> Option<i32> {
+    match x {
+        None => None,
+        Some(i) => Some(i+1),
+    }
 
 }
