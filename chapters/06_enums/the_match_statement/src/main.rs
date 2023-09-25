@@ -28,7 +28,23 @@ fn main() {
     let none = plus_one(None);
 
     // matches must exhaust all the possible values of the enum
+
+    // matches with default values for remaining patterns in enum
+    let dice_roll = 9;
+    match dice_roll {
+        3 => add_fancy_hat(),
+        7 => remove_fancy_hat(),
+        other => move_player(other),
+        // _ => reroll() // in case we want to reroll until landing on 3 or 7
+        // _ => () // do nothing if we land in the last arm
+    }
+
 }
+
+fn add_fancy_hat() {}
+fn remove_fancy_hat() {}
+fn move_player(num_spaces: u8) {}
+fn reroll() {}
 
 fn value_in_cents(coin: Coin) -> u8 {
     // with if expressions we would have to evaluate conditions to bools,
