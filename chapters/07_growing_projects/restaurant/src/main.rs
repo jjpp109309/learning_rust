@@ -8,6 +8,13 @@ use std::io;
 // exception avoided using aliases
 use std::io as IoResult;
 
+
+// using use trees to import different levels of a hierarchy
+// instead of
+// use std::cmp::Ordering;
+// use std::io;
+use std::{cmp::Ordering, io};
+
 fn main() {
     let mut map = HashMap::new();
     map.insert(1, 2);
