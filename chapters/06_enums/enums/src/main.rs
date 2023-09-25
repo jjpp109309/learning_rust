@@ -18,6 +18,29 @@ enum IpAddrTypes {
     V6(String),
 }
 
+enum Message {
+        Quit,
+        Move {x: i32, y: i32},
+        Write(String),
+        ChangeColor(i32, i32, i32)
+}
+
+// same encoding of messages but with structs would be messy :(
+// struct QuitMessage; // unit struct
+// struct MoveMessage {
+//     x: i32,
+//     y: i32,
+// }
+// struct WriteMessage(String); // tuple struct
+// struct ChangeColorMessage(i32, i32, i32); // tuple struct
+
+// we can also define methods on enums
+impl Message {
+    fn call(&self) {
+        // some awesome method!
+    }
+}
+
 fn main() {
     let four = IpAddrKind::V4;
     let six = IpAddrKind::V6;
@@ -41,5 +64,9 @@ fn main() {
     let home_types = IpAddrTypes::V4(127, 0, 0, 0);
     let loopback_types = IpAddrTypes::V6(String::from("::1"));
 
+
+    // enums with methods!
+    let m = Message::Write(String::from("hello"));
+    m.call();
 
 }
