@@ -79,6 +79,9 @@ mod customer {
     }
 }
 
+// bring name as if it had been defined as pub
+pub use crate::front_house::hosting;
+
 pub fn add(left: usize, right: usize) -> usize {
     left + right
 }
