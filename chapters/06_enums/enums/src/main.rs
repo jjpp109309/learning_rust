@@ -69,4 +69,9 @@ fn main() {
     let m = Message::Write(String::from("hello"));
     m.call();
 
+    // The option enum: The rust way to represent something or nothing
+    let some_number = Some(5);
+    let some_char = Some('a');
+    let absent_number: Option<i32> = None;
+
 }
