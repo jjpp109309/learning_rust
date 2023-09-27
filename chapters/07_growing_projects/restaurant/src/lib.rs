@@ -59,6 +59,7 @@ pub fn eat_at_restaurant() {
     
     // order breakfast in summer with Rye toast
     let mut meal = back_of_house::Breakfast::summer("Rye");
+    let mut second_meal = back_of_house::Breakfast::summer("Rye");
 
     // change mind about the bread we want
 
