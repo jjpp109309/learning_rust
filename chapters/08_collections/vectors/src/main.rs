@@ -37,4 +37,24 @@ fn main() {
         *i += 50;
         println!("after {}", i);
     }
+
+    // vectors with different types through enums
+    enum SpreadsheetCell {
+        Int(i32),
+        Float(f64),
+        Text(String),
+    }
+
+    let row = vec![
+        SpreadsheetCell::Int(3),
+        SpreadsheetCell::Float(10.12),
+        SpreadsheetCell::Text(String::from("Super awesome string")),
+    ];
+
+    // vectors go out of scope as structs
+    {
+        let v7 = vec![1, 2, 3];
+
+        // do awesome stuff with v7
+    } // v7 has seized to exist, like your chances of being something at life
 }
