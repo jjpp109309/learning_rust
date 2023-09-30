@@ -23,4 +23,18 @@ fn main() {
         Some(second) => println!("The second element is {second}"),
         None => println!("There isno second element :("),
     }
+
+    // iterating over values in a mutable vector
+    let v5 = vec![100, 32, 57];
+    for i in &v5 {
+        println!("{i}");
+    }
+
+    // iterating over values in mutable vector and making changes to them
+    let mut v6 = vec![200, 33, 89];
+    for i in &mut v6 {
+        println!("before {}", i);
+        *i += 50;
+        println!("after {}", i);
+    }
 }
