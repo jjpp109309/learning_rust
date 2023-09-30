@@ -17,4 +17,10 @@ fn main() {
     let v4 = vec![1, 2, 3, 4, 5];
     let third: &i32 = &v4[2];
     println!("The third element is {}", third);
+
+    let second: Option<&i32> = v4.get(1);
+    match second {
+        Some(second) => println!("The second element is {second}"),
+        None => println!("There isno second element :("),
+    }
 }
