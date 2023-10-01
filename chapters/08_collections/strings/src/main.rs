@@ -40,8 +40,13 @@ fn main() {
     // println!("concatenation method 1: {}", s)
 
     let s = format!("{s1}+{s2}+{s3}"); // method 2 for more complicated formats
-    println!("concatenation method 2: {}", s)
+    println!("concatenation method 2: {}", s);
     
+    // there is no standard way of indexing in rust
+    // we can iterate over strings with .char() method
+    for c in "cosacosa".chars() {
+        println!("{}", c);
+    }
 
 
 }
