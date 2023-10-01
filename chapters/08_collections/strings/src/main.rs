@@ -19,4 +19,9 @@ fn main() {
     s3.push_str(s4);
     println!("{}", s4); // no problem since we didn't take ownership
 
+    // we can also push chars with push
+    let mut s5 = String::from("lo");
+    s5.push('l');
+    println!("s5 is {}", s5);
+
 }
