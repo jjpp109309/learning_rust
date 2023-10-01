@@ -24,4 +24,24 @@ fn main() {
     s5.push('l');
     println!("s5 is {}", s5);
 
+    // combining two strings with + operator
+    let s1 = String::from("Hello");
+    let s2 = String::from("World");
+
+    let s3 = s1 + &s2; // s1 can no longer be used
+    println!("{}", s3);
+
+    // concatenating muliple strings
+    let s1 = String::from("tic");
+    let s2 = String::from("tac");
+    let s3 = String::from("toe");
+
+    // let s = s1 + "-" + &s2 + "-" + &s3; // method 1
+    // println!("concatenation method 1: {}", s)
+
+    let s = format!("{s1}+{s2}+{s3}"); // method 2 for more complicated formats
+    println!("concatenation method 2: {}", s)
+    
+
+
 }
