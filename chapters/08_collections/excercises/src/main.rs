@@ -17,7 +17,12 @@ fn main() {
     let my_vector3 = vec![1, 2, 4, 4, 5];
     let mode2 = mode(&my_vector3);
     println!("The mode is {}", mode2);
+
+    let my_word = String::from("apple");
+    let my_pig_word = pig_latin(&my_word);
+    println!("The pig latin word for {} is {}", my_word, my_pig_word);
 }
+
 
 fn mean(list: &Vec<f32>) -> f32 {
     let mut sum = 0.0;
@@ -55,4 +60,18 @@ fn mode(list: &Vec<i32>) -> i32 {
     }
 
     value
+}
+
+fn pig_latin(word: &String) -> String {
+    let consonants = String::from("qwrtyplkjhgfdszxcvbnm");
+
+    let mut first_consonant = String::from("");
+    for char in word.chars() {
+        if consonants.contains(char) {
+            first_consonant = String::from(char);
+            break;
+        }
+    }
+
+    String::from(word) + &"-" + &first_consonant + &"ay"
 }
