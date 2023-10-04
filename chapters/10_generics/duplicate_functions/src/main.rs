@@ -10,14 +10,14 @@ fn main() {
     
 }
 
-fn find_largest_number(list: &Vec<i32>) -> i32 {
+fn find_largest_number(list: &Vec<i32>) -> &i32 {
     let mut largest = &list[0];
 
     for number in list {
         if number > largest {
-            largest = &number;
+            largest = number;
         }
     }
 
-    *largest
+    largest
 }
