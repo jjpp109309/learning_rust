@@ -1,5 +1,27 @@
 use std::cmp::PartialOrd;
 
+// struct definitions
+struct Point<T> {
+    x: T,
+    y: T,
+}
+
+struct MultiTypePoint<T, U> {
+    x: T,
+    y: U,
+}
+
+// same with enums
+enum Options<T> {
+    Some(T),
+    None(),
+}
+
+enum Results<T, E> {
+    Ok(T),
+    Err(E),
+}
+
 fn main() {
     let number_list = vec![34, 50, 25, 100, 65];
     let number_list_2 = vec![102, 34, 6000, 89, 54, 2, 43, 8];
@@ -30,6 +52,11 @@ fn main() {
     let result = largest(&char_list);
     println!("The largest char is {}", result);
 
+    // using generic types in structs
+    let integet = Point {x: 5, y: 10};
+    let float = Point {x: 1.0, y: 4.0};
+    // let wont_work = Point {x: 1, y: 4.0}; type specifies same type
+    let will_work = MultiTypePoint {x: 1, y: 4.0}; 
 }
 
 fn find_largest_number(list: &Vec<i32>) -> &i32 {
