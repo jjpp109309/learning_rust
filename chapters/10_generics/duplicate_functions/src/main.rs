@@ -11,6 +11,19 @@ struct MultiTypePoint<T, U> {
     y: U,
 }
 
+impl<T> Point<T> {
+    fn x(&self) -> &T {
+        &self.x
+    }
+}
+
+// implement method only for f32 type 
+impl Point<f32> {
+    fn distance_from_origin(&self) -> f32 {
+        (self.x.powi(2) + self.y.powi(2)).sqrt()
+    }
+}
+
 // same with enums
 enum Options<T> {
     Some(T),
@@ -53,10 +66,18 @@ fn main() {
     println!("The largest char is {}", result);
 
     // using generic types in structs
-    let integet = Point {x: 5, y: 10};
+    let integer = Point {x: 5, y: 10};
     let float = Point {x: 1.0, y: 4.0};
     // let wont_work = Point {x: 1, y: 4.0}; type specifies same type
     let will_work = MultiTypePoint {x: 1, y: 4.0}; 
+
+    // using generic types in impl
+    let p = Point {x: 5, y: 10};
+    // println!("p.x = {}", p.x());
+
+    let distance = float.distance_from_origin();
+    // let distance = integer.distance_from_origin(); // wont run 
+    println!("the distance from origin is {}", distance);
 }
 
 fn find_largest_number(list: &Vec<i32>) -> &i32 {
