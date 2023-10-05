@@ -1,4 +1,4 @@
-use aggregator::{Tweet, Summary, DefaultSummary};
+use aggregator::{Tweet, NewsArticle, Summary, DefaultSummary};
 
 fn main() {
     let tweet = Tweet {
@@ -10,4 +10,16 @@ fn main() {
 
     println!("1 new tweet: {}", tweet.summarize());
     println!("using default impl: {}", tweet.default_summarize());
+
+    let article = NewsArticle {
+        headline: String::from("Penguins win the Stanley Cup Championship"),
+        location: String::from("Pittsburgh, PA, USA"),
+        author: String::from("Iceburgh"),
+        content: String::from(
+            "The Pittsburgh Penguins once again are the best \
+             hockey team in the NHL."
+        ),
+    };
+    println!("1 new article: {}", article.summarize());
+
 }
