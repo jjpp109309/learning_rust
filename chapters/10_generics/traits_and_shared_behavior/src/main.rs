@@ -1,4 +1,4 @@
-use aggregator::{Tweet, Summary};
+use aggregator::{Tweet, Summary, DefaultSummary};
 
 fn main() {
     let tweet = Tweet {
@@ -9,4 +9,5 @@ fn main() {
     };
 
     println!("1 new tweet: {}", tweet.summarize());
+    println!("using default impl: {}", tweet.default_summarize());
 }

@@ -2,6 +2,12 @@ pub trait Summary {
     fn summarize(&self) -> String;
 }
 
+pub trait DefaultSummary {
+    fn default_summarize(&self) -> String {
+        String::from("(Read more...)")
+    }
+}
+
 // implementing traits on a types
 pub struct NewsArticle {
     pub headline: String,
@@ -28,3 +34,5 @@ impl Summary for Tweet {
         format!("{}: {}", self.username, self.content)
     }
 }
+
+impl DefaultSummary for Tweet {}
