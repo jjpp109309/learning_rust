@@ -61,3 +61,30 @@ fn returns_summarizable() -> impl Summary {
         retweet: false,
     }
 }
+
+// conditionaly implement methods with trait bounds
+use std::fmt::Display;
+use std::cmp::PartialOrd;
+
+struct Pair<T> {
+    x: T,
+    y: T,
+}
+
+impl<T> Pair<T> {
+    fn new(x: T, y: T) -> Self {
+        Self {x, y}
+    }
+}
+
+impl<T: Display+PartialOrd> Pair<T> {
+    fn cmp_display(&self) {
+        if self.x >= self.y {
+            println!("The largest member is {}", self.x);
+        } else {
+            println!("The largest member is {}", self.y);
+        }
+    }
+}
+
+
