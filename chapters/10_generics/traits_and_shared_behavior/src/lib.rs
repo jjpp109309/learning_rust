@@ -47,5 +47,17 @@ impl DefaultSummary for Tweet {}
 
 // define a function that inputs any type that implements a trait
 pub fn notify(item: &impl Summary) {
-    println!("Breaking news! {}", item.summarize());
+    println!("Breaking news! {}", item.summarize());    
+}
+
+fn returns_summarizable() -> impl Summary {
+    // must return the same type :)
+    Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from(
+            "of course, as you probably already know, people"
+        ),
+        reply: false,
+        retweet: false,
+    }
 }
