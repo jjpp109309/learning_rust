@@ -44,3 +44,8 @@ impl Summary for Tweet {
 }
 
 impl DefaultSummary for Tweet {}
+
+// define a function that inputs any type that implements a trait
+pub fn notify(item: &impl Summary) {
+    println!("Breaking news! {}", item.summarize());
+}

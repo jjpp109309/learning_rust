@@ -1,4 +1,4 @@
-use aggregator::{Tweet, NewsArticle, Summary, DefaultSummary};
+use aggregator::{Tweet, NewsArticle, Summary, DefaultSummary, notify};
 
 fn main() {
     let tweet = Tweet {
@@ -22,4 +22,9 @@ fn main() {
     };
     println!("1 new article: {}", article.summarize());
 
+    notify(&tweet);
+
+    // won't compile 'cause x does not implement Summary
+    // let x = 32;
+    // notify(&x)
 }
