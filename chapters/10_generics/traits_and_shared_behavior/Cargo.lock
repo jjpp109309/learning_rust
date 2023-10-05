@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "traits_and_shared_behavior"
+name = "aggregator"
 version = "0.1.0"

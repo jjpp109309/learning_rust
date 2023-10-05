@@ -1,5 +1,5 @@
 [package]
-name = "traits_and_shared_behavior"
+name = "aggregator"
 version = "0.1.0"
 edition = "2021"
 
