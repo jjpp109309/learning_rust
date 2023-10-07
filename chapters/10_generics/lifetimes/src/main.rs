@@ -2,6 +2,17 @@ struct ImportantExcerpt<'a> {
     part: &'a str,
 }
 
+impl<'a> ImportantExcerpt<'a> {
+    fn level(&self) -> i32 {
+        3
+    }
+
+    fn announce_and_return(&self, announcement: &str) -> &str {
+        println!("Attention please: {}", announcement);
+        self.part
+    }
+}
+
 fn main() {
     // won't compile
     // let r;
