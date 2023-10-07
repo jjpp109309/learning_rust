@@ -1,3 +1,7 @@
+struct ImportantExcerpt<'a> {
+    part: &'a str,
+}
+
 fn main() {
     // won't compile
     // let r;
@@ -35,6 +39,14 @@ fn main() {
     //     result = longest(string5.as_str(), string6.as_str());
     // }
     // println!("The longests string is {}", result);
+
+
+    // lifetime annotations in structs (structs that hold references)
+    let novel = String::from("Call me Ishmael. Some years ago...");
+    let first_sentence = novel.split('.').next().expect("Could not find a .");
+    let i = ImportantExcerpt {
+        part: first_sentence,
+    };
 }
 
 // function with lifetime annotation syntax
