@@ -57,6 +57,7 @@ mod my_awesome_tests {
     }
 
     #[test]
+    #[ignore]
     fn another() {
         panic!("Make this test fail");
     }
@@ -97,6 +98,7 @@ mod my_awesome_tests {
     }
 
     #[test]
+    #[ignore]
     fn greeting_contains_name() {
         let result = greeting("Carol");
         assert!(
@@ -107,6 +109,7 @@ mod my_awesome_tests {
     }
 
     #[test]
+    #[ignore]
     #[should_panic(expected="Guess value must be less than or equal to 100")]
     fn greater_than_100() {
         Guess::new(200);
