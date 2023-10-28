@@ -65,6 +65,7 @@ fn main() {
     thread::spawn(move || {
         let val = String::from("hi");
         tx.send(val).unwrap();
+        // println!("val is {}", val); // send takes ownership, this won't compile
     });
 
     let received = rx.recv().unwrap();
