@@ -91,4 +91,40 @@ fn main() {
     for received in rx {
         println!("Got: {}", received);
     }
+
+    // creating multiple producers by cloning the transmiter
+    let (tx, rx) = mpsc::channel();
+
+    let tx1 = tx.clone();
+    thread::spawn(move || {
+        let vals = vec![
+            String::from("tx1: hi"), 
+            String::from("tx1: from"),
+            String::from("tx1: the"),
+            String::from("tx1: thread"),
+        ];
+        
+        for val in vals {
+            tx1.send(val).unwrap();
+            thread::sleep(Duration::from_secs(1));
+        }
+    });
+
+    thread::spawn(move || {
+        let vals = vec![
+            String::from("tx2: more"), 
+            String::from("tx2: messages"),
+            String::from("tx2: for"),
+            String::from("tx2: you"),
+        ];
+        
+        for val in vals {
+            tx.send(val).unwrap();
+            thread::sleep(Duration::from_secs(1));
+        }
+    });
+
+    for received in rx {
+        println!("got: {}", received); // receives from both tx and tx1
+    }
 }
