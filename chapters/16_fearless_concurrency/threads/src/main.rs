@@ -1,5 +1,6 @@
 use std::thread;
 use std::time::Duration;
+use std::sync::mpsc;
 
 fn main() {
     // run two threads at once
@@ -57,4 +58,16 @@ fn main() {
     });
 
     handle.join().unwrap();
+
+    // creating channels
+    let (tx, rx) = mpsc::channel();
+
+    thread::spawn(move || {
+        let val = String::from("hi");
+        tx.send(val).unwrap();
+    });
+
+    let received = rx.recv().unwrap();
+    println!("got: {}", received);
+
 }
