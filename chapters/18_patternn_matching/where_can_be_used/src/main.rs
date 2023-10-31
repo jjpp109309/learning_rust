@@ -1,4 +1,5 @@
 fn main() {
+    // if let pattern matching
     let favorite_color: Option<&str> = None;
     let is_tuesday = false;
     let age: Result<u8, _> = "34".parse();
@@ -15,5 +16,23 @@ fn main() {
         }
     } else {
             println!("Usingn blue as the background color");
+    }
+    
+    // while let conditional loops
+    let mut stack = Vec::new();
+
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+
+    while let Some(top) = stack.pop() {
+        println!("{}", top);
+    }
+
+    // for loops
+    let v = vec!['a', 'b', 'c'];
+    
+    for (index, value) in v.iter().enumerate() {
+        println!("{} is at index {}", value, index)
     }
 }
