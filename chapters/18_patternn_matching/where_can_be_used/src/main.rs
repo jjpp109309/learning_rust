@@ -35,4 +35,8 @@ fn main() {
     for (index, value) in v.iter().enumerate() {
         println!("{} is at index {}", value, index)
     }
+
+    // let pattern matching
+    let (x, y, z) = (1, 2, 3);
+    
 }
