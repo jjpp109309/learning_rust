@@ -1,3 +1,6 @@
 fn main() {
-    println!("Hello, world!");
+    let some_option_value = Some(3);
+    if let Some(x) = some_option_vaule {
+        println!("{}", x);
+    }
 }
