@@ -1,3 +1,7 @@
+fn print_coordinates(&(x, y): &(i32, i32)) {
+    println!("Current location: ({}, {})", x, y);
+}
+
 fn main() {
     // if let pattern matching
     let favorite_color: Option<&str> = None;
@@ -38,5 +42,9 @@ fn main() {
 
     // let pattern matching
     let (x, y, z) = (1, 2, 3);
+
+    // function patternns
+    let point = (3, 5);
+    print_coordinates(&point);
     
 }
