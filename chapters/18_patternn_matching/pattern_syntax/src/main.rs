@@ -115,4 +115,18 @@ fn main() {
         },
         _ => ()
     }
+
+    // extra conditionals  with match gurds
+    let num = Some(4);
+
+    match num {
+        // Some(x) if x % 2 == 0 => println!("the number {} is even", x),
+        Some(x) if is_even(x) => println!("the number {} is even", x),
+        Some(x) => println!("the nnumber {} is odd", x),
+        None => (),
+    }
+}
+
+fn is_even(x: i32) -> bool {
+    return x % 2 == 0
 }
