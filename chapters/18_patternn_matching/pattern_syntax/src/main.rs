@@ -2,12 +2,23 @@ struct Point {
     x: i32,
     y: i32,
 }
+enum Color {
+    Rgb(i32, i32, i32),
+    Hsv(i32, i32, i32),
+}
 
 enum Message {
     Quit,
     Move { x: i32, y: i32},
     Write(String),
     ChangeColor(i32, i32, i32),
+}
+
+enum Message2 {
+    Quit,
+    Move { x: i32, y: i32},
+    Write(String),
+    ChangeColor(Color),
 }
 
 fn main() {
@@ -90,5 +101,18 @@ fn main() {
         Message::ChangeColor(r, g, b) => {
             println!("Change the color to rgb({},{},{})", r, g, b);
         }
+    }
+
+    // nested enums
+    let msg = Message2::ChangeColor(Color::Hsv(0, 160, 255));
+
+    match msg {
+        Message2::ChangeColor(Color::Rgb(r, g, b)) => {
+            println!("Change color to rgb({},{},{})", r, g, b);
+        },
+        Message2::ChangeColor(Color::Hsv(h, s, v)) => {
+            println!("Change color to hsv({},{},{})", h, s, v);
+        },
+        _ => ()
     }
 }
